@@ -3,14 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-//Dev Tools for Firefox
-import devToolsEnhancer from "remote-redux-devtools";
 //Store
 import { createStore } from "redux";
 //Reducers
 import allReducers from "./reducers";
 
-const store = createStore(allReducers, devToolsEnhancer());
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>
